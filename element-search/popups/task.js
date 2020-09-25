@@ -1,17 +1,20 @@
 
 const modalMain = document.getElementById("modal_main");
 const modalSuccess = document.getElementById("modal_success");
-let close = document.getElementsByClassName('modal__close_times');
+let modalClose = document.getElementsByClassName('modal__close_times');
+let modal = document.getElementsByClassName('modal');
 let show = document.getElementsByClassName('show-success');
-
+let arrClose = Array.from(modalClose);
 modalMain.classList.add('modal_active');
 
-close.item(0).onclick = function() {
-	modalMain.classList.remove('modal_active');
-}
+console.log(arrClose)
 
-close.item(1).onclick = function() {
-	modalSuccess.classList.remove('modal_active');
+for ( i = 0 ; i < arrClose.length; i++) {
+   let close = arrClose[i]
+   console.log(i);
+   close.onclick = function() {
+   	close.closest('.modal').classList.remove('modal_active')
+   } 
 }
 
 show.item(0).onclick = function() {
