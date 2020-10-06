@@ -1,12 +1,11 @@
 class Game {
+
   constructor(container) {
     this.container = container;
     this.wordElement = container.querySelector('.word');
     this.winsElement = container.querySelector('.status__wins');
     this.lossElement = container.querySelector('.status__loss');
-
     this.reset();
-
     this.registerEvents();
   }
 
@@ -17,6 +16,21 @@ class Game {
   }
 
   registerEvents() {
+    document.addEventListener('keypress', this.keyPress.bind(this));
+    console.log(this.currentSymbol);
+  }
+
+  keyPress(event) {
+//      if (document.getElementsByClassName('symbol_current').item(0).textContent == event.key) {
+   if (this.currentSymbol.textContent == event.key) {
+      console.log(event.key + ' success' );
+      this.success();
+    } else {
+      console.log(event.key + ' fail');
+      this.fail();
+    }
+  }
+  
     /*
       TODO:
       Написать обработчик события, который откликается
@@ -24,12 +38,15 @@ class Game {
       В случае правильного ввода слова вызываем this.success()
       При неправильном вводе символа - this.fail();
      */
-  }
+ 
 
   success() {
+    this.currentSymbol.classList.remove('symbol_current');
     this.currentSymbol.classList.add('symbol_correct');
     this.currentSymbol = this.currentSymbol.nextElementSibling;
+    // console.log(this.currentSymbol);
     if (this.currentSymbol !== null) {
+      this.currentSymbol.classList.add('symbol_current');
       return;
     }
 
@@ -86,5 +103,5 @@ class Game {
   }
 }
 
-new Game(document.getElementById('game'))
+var game = new Game(document.getElementById('game'))
 
