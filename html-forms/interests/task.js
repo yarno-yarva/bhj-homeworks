@@ -41,6 +41,11 @@ function verife(i){
               checkbox[i].closest('ul').closest('li').getElementsByClassName('interest__check')[0].checked = true;
            } else if (count < checkbox[i].closest('ul').closest('li').getElementsByClassName('interest__check').length -1) {
               checkbox[i].closest('ul').closest('li').getElementsByClassName('interest__check')[0].checked = false;
+              if(checkbox[i].closest('ul').closest('li').getElementsByClassName('interest__check')[0].indeterminate == true){
+                checkbox[i].closest('ul').closest('li').getElementsByClassName('interest__check')[0].indeterminate = false;
+              } else {
+                checkbox[i].closest('ul').closest('li').getElementsByClassName('interest__check')[0].indeterminate = true;
+              }
               checkbox[i].closest('ul').closest('li').getElementsByClassName('interest__check')[0].indeterminate = true;
            } else if (count == 0 ) {
             checkbox[i].closest('ul').closest('li').getElementsByClassName('interest__check')[0].indeterminate = false
