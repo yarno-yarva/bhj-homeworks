@@ -46,7 +46,7 @@ function verife(i){
               } else {
                 checkbox[i].closest('ul').closest('li').getElementsByClassName('interest__check')[0].indeterminate = true;
               }
-              checkbox[i].closest('ul').closest('li').getElementsByClassName('interest__check')[0].indeterminate = true;
+              //checkbox[i].closest('ul').closest('li').getElementsByClassName('interest__check')[0].indeterminate = true;
            } else if (count == 0 ) {
             checkbox[i].closest('ul').closest('li').getElementsByClassName('interest__check')[0].indeterminate = false
             checkbox[i].closest('ul').closest('li').getElementsByClassName('interest__check')[0].checked = false;
